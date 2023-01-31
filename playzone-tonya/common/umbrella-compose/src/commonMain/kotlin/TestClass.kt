@@ -1,3 +1,3 @@
 class TestClass {
-    fun helloWorld(): String = "Hello world"
+    fun hello(): String = "Hello, Tonya"
 }

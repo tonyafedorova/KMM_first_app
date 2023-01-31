@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     val tv: TextView = findViewById(androidx.core.R.id.text)
-                    tv.text = TestClass().helloWorld()
+                    tv.text = TestClass().hello()
                 }
             }
         }
