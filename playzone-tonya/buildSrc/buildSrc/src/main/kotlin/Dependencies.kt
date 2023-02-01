@@ -1,11 +1,11 @@
 class Dependencies {
     object Kotlin {
-        private const val version = "1.6.21"
-        const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin"
+        private const val version = "1.7.10"
+        const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
     }
 
     object Compose {
-        private const val version = "1.1.1"
+        private const val version = "1.2.0"
         const val gradlePlugin = "org.jetbrains.compose:compose-gradle-plugin:$version"
     }
 
