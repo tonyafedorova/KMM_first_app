@@ -18,10 +18,9 @@ class MainActivity : ComponentActivity() {
             MyApplicationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    color = MaterialTheme.colors.error
                 ) {
-                    val tv: TextView = findViewById(androidx.core.R.id.text)
-                    tv.text = TestClass().hello()
+                    
                 }
             }
         }
@@ -37,6 +36,6 @@ fun GreetingView(text: String) {
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        GreetingView("Hello, Android!")
+        GreetingView(TestClass().hello())
     }
 }
