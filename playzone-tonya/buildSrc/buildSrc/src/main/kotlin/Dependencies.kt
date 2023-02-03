@@ -9,12 +9,12 @@ class Dependencies {
 
         object Serialization {
             const val gradlePlugin = "org.jetbrains.kotlin:kotlin-serialization:1.5.31"
-            const val serialization = "org.jetbrains.kotlin:kotlinx-serialization-core:1.3.1"
+            const val serialization = "org.jetbrains.kotlinx:kotlinx-serialization-core:1.3.1"
         }
 
         object Coroutines {
             private const val version = "1.6.0"
-            const val core = "org.jetbrains.kotlin:kotlinx-coroutines-core:$version"
+            const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
         }
     }
 

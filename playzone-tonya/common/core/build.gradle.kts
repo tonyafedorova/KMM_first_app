@@ -30,5 +30,11 @@ kotlin {
                 implementation(Dependencies.Ktor.ios)
             }
         }
+
+        desktopMain {
+            dependencies {
+                implementation(Dependencies.Ktor.okhttp )
+            }
+        }
     }
 }
