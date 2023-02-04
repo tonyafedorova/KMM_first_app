@@ -5,6 +5,7 @@ import io.ktor.client.features.*
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
 import io.ktor.client.features.logging.*
+import io.ktor.client.request.*
 import org.kodein.di.DI
 import org.kodein.di.singleton
 import org.kodein.di.bind
@@ -25,6 +26,10 @@ internal var ktorModule = DI.Module("ktorModule") {
             install(HttpTimeout) {
                 connectTimeoutMillis = 15000
                 requestTimeoutMillis = 30000
+            }
+
+            defaultRequest {
+                url("http://10.0.2.2:8080/")
             }
         }
     }
