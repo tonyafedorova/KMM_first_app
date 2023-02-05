@@ -1,8 +1,6 @@
 package com.example.playzone_tonya.android
 
-import TestClass
 import android.os.Bundle
-import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,10 +16,9 @@ class MainActivity : ComponentActivity() {
             MyApplicationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    color = MaterialTheme.colors.error
                 ) {
-                    val tv: TextView = findViewById(androidx.core.R.id.text)
-                    tv.text = TestClass().hello()
+                    
                 }
             }
         }
@@ -37,6 +34,6 @@ fun GreetingView(text: String) {
 @Composable
 fun DefaultPreview() {
     MyApplicationTheme {
-        GreetingView("Hello, Android!")
+        GreetingView(TestClass().hello())
     }
 }
