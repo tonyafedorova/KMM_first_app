@@ -1,8 +1,6 @@
 package com.example.playzone_tonya.android
 
-import TestClass
 import android.os.Bundle
-import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
