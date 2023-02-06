@@ -29,6 +29,7 @@ internal var ktorModule = DI.Module("ktorModule") {
             }
 
             defaultRequest {
+                header("Content-Type", "application/json; charset=UTF-8")
                 url("http://10.0.2.2:8080/")
             }
         }
