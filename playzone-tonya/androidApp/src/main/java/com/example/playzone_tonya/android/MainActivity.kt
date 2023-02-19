@@ -24,8 +24,8 @@ class MainActivity : ComponentActivity() {
         CoroutineScope(context = Dispatchers.IO).launch {
             val games = gamesRepository.fetchAllGames()
             withContext(Dispatchers.Main) {
-                val tv = findViewById<TextView>(androidx.core.R.id.text2)
-                tv.text = "Title: ${games.first().title}"
+//                val tv = findViewById<TextView>(androidx.core.R.id.text2)
+                val text = "Title: ${games.first().title}"
             }
         }
     }
