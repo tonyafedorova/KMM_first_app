@@ -46,4 +46,19 @@ class Dependencies {
     object Android {
         const val gradlePlugin = "com.android.tools.build:gradle:7.2.2"
     }
+
+    object Other {
+        object ViewModel {
+            private const val version = "0.7.1"
+            const val core = "com.adeo:kviewmodel:$version"
+            const val compose = "com.adeo:kviewmodel-compose:$version"
+            const val odyssey = "com.adeo:kviewmodel-odyssey:$version"
+        }
+
+        object Navigation {
+            private const val version = "1.0.0-beta15"
+            const val core = "io.github.alexgladkov:odyssey-core:$version"
+            const val compose = "io.github.alexgladkov:odyssey-compose:$version"
+        }
+    }
 }
