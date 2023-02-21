@@ -45,6 +45,14 @@ class Dependencies {
 
     object Android {
         const val gradlePlugin = "com.android.tools.build:gradle:7.2.2"
+
+        object Compose {
+            private const val version = "1.2.1"
+            const val ui = "androidx.compose.ui:ui:$version"
+            const val material = "androidx.compose.material:material:$version"
+            const val tooling = "androidx.compose.ui:ui-tooling-data:$version"
+            const val icons = "androidx.compose.material:material-icons-core:$version"
+        }
     }
 
     object Other {
