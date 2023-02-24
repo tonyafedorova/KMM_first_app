@@ -45,6 +45,7 @@ class Dependencies {
 
     object Android {
         const val gradlePlugin = "com.android.tools.build:gradle:7.2.2"
+        const val composeActivity = "androidx.activity:activity-compose:1.6.1"
 
         object Compose {
             private const val version = "1.2.1"
@@ -64,7 +65,7 @@ class Dependencies {
         }
 
         object Navigation {
-            private const val version = "1.0.0-beta15"
+            private const val version = "1.2.0"
             const val core = "io.github.alexgladkov:odyssey-core:$version"
             const val compose = "io.github.alexgladkov:odyssey-compose:$version"
         }
