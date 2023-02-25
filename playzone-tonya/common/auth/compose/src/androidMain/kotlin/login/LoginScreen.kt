@@ -3,6 +3,7 @@ package login
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -10,11 +11,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.adeo.kviewmodel.compose.observeAsState
+import login.models.LoginEvent
 import theme.Theme
 
 @Composable
 
 fun LoginScreen() {
+    val viewModel = LoginViewModel()
+    val state = viewModel.viewStates().observeAsState()
+
     Column(modifier = Modifier.padding(30.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "Login Now", color = Theme.colors.thirdTextColor,
@@ -27,5 +33,8 @@ fun LoginScreen() {
             textAlign = TextAlign.Center,
             color = Theme.colors.hintTextColor
         )
+        TextField(value = state.value.email, onValueChange = {
+            viewModel.obtainEvent(LoginEvent.EmailChanged(it))
+        })
     }
 }
