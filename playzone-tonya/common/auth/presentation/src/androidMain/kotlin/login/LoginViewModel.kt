@@ -21,6 +21,7 @@ class LoginViewModel: BaseSharedViewModel<LoginViewState, LoginAction, LoginEven
             is LoginEvent.PasswordChanged -> obtainPasswordChanged(viewEvent.value)
             is LoginEvent.ForgotClicked -> openForgot()
             is LoginEvent.RegistrationClicked -> openRegistration()
+            is LoginEvent.PasswordShowClick -> changePasswordVisibility()
         }
     }
 
@@ -58,6 +59,12 @@ class LoginViewModel: BaseSharedViewModel<LoginViewState, LoginAction, LoginEven
     private fun obtainPasswordChanged(value: String) {
         viewState = viewState.copy(
             password = value
+        )
+    }
+
+    private fun changePasswordVisibility() {
+        viewState = viewState.copy(
+            passwordHidden = !viewState.passwordHidden
         )
     }
 }

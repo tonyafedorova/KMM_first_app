@@ -1,15 +1,20 @@
 package login
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalOf
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -38,17 +43,68 @@ fun LoginScreen() {
                 textAlign = TextAlign.Center,
                 color = Theme.colors.hintTextColor
             )
+
+            Spacer(modifier = Modifier.height(50.dp))
             
-            TextField(value = state.value.email,
+            TextField(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp),
+                value = state.value.email,
                 enabled = !state.value.isSending,
+                colors = TextFieldDefaults.textFieldColors(
+                    backgroundColor = Color(0xFF1F2430),
+                    textColor = Color(0xFF696C75),
+                    cursorColor = Theme.colors.highlightTextColor,
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
+                ),
+                placeholder = {
+                    Text("Your login", color = Theme.colors.hintTextColor)
+                },
+                shape = RoundedCornerShape(10.dp),
                 onValueChange = {
                 viewModel.obtainEvent(LoginEvent.EmailChanged(it))
             })
             
             Spacer(modifier = Modifier.height(24.dp))
 
-            TextField(value = state.value.password,
+            TextField(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(56.dp),
+                value = state.value.password,
                 enabled = !state.value.isSending,
+                colors = TextFieldDefaults.textFieldColors(
+                    backgroundColor = Color(0xFF1F2430),
+                    textColor = Color(0xFF696C75),
+                    cursorColor = Theme.colors.highlightTextColor,
+                    focusedIndicatorColor = Color.Transparent,
+                    unfocusedIndicatorColor = Color.Transparent
+                ),
+                visualTransformation = if (state.value.passwordHidden) {
+                    PasswordVisualTransformation()
+                } else {
+                    VisualTransformation.None
+                },
+                placeholder = {
+                    Text("Your password", color = Theme.colors.hintTextColor)
+                },
+                trailingIcon = {
+                    Icon(
+                        modifier = Modifier.clickable {
+                            viewModel.obtainEvent(LoginEvent.PasswordShowClick)
+                        },
+                        imageVector = if (state.value.passwordHidden) {
+                            Icons.Default.Star
+                        } else {
+                            Icons.Default.Lock
+                        },
+                        contentDescription = "Password hidden",
+                        tint = Theme.colors.hintTextColor
+                    )
+                },
+                shape = RoundedCornerShape(10.dp),
                 onValueChange = {
                 viewModel.obtainEvent(LoginEvent.PasswordChanged(it))
             })
