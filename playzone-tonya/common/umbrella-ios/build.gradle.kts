@@ -1,7 +1,9 @@
 plugins {
     id("multiplatform-setup")
     id("android-setup")
+    kotlin("plugin.serialization")
     kotlin("native.cocoapods")
+    kotlin("multiplatform")
 }
 
 version = "0.0.1"
@@ -9,8 +11,8 @@ version = "0.0.1"
 kotlin {
     cocoapods {
         summary = "PlayZone iOS SDK"
-        homepage = "https://github.com/tonyafedorova/KMM_first_app"
-        ios.deploymentTarget = "12.0"
+        homepage = "https://google.com"
+        ios.deploymentTarget = "14.0"
 
         framework {
             transitiveExport = false
@@ -23,6 +25,28 @@ kotlin {
             export(project(":common:games:presentation"))
             export(project(":common:tournaments:api"))
             export(project(":common:tournaments:presentation"))
+        }
+    }
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation(project(":common:core"))
+                implementation(project(":common:core-utils"))
+                implementation(project(":common:auth:api"))
+                implementation(project(":common:auth:presentation"))
+                implementation(project(":common:games:api"))
+            }
+        }
+
+        iosMain {
+            dependencies {
+                api(project(":common:core"))
+                api(project(":common:core-utils"))
+                api(project(":common:auth:api"))
+                api(project(":common:auth:presentation"))
+                api(project(":common:games:api"))
+            }
         }
     }
 }
